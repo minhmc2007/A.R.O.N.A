@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" alt="A.R.O.N.A Logo">
+</p>
+
 # A.R.O.N.A
 
 ## Overview

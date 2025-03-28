@@ -1,0 +1,55 @@
+name: Train AI Model
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  train-and-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Update and upgrade the system
+      - name: Update and upgrade system
+        run: |
+          sudo apt update
+          sudo apt upgrade -y
+
+      # Step 3: Install Python3 and pip
+      - name: Install Python3 and pip
+        run: |
+          sudo apt install -y python3 python3-pip
+
+      # Step 4: Install required Python packages
+      - name: Install Python dependencies
+        run: |
+          pip3 install torch transformers datasets peft bitsandbytes accelerate
+
+      # Step 5: Clone the repository (already checked out, but ensuring latest)
+      # Note: Since actions/checkout already clones the repo, this step is optional unless you need a specific branch or repo
+      - name: Clone repository (optional)
+        run: |
+          git pull origin main
+
+      # Step 6: Run the training script
+      - name: Run training script
+        run: |
+          python3 trainbot.py
+
+      # Step 7: Compress the output folders into a zip file
+      - name: Compress model folders
+        run: |
+          sudo apt install -y zip
+          zip -r tinyllama_output.zip tinyllama_lora tinyllama_finetuned
+
+      # Step 8: Upload the zip file as an artifact
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: tinyllama_output
+          path: tinyllama_output.zip

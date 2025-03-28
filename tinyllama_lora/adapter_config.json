@@ -3,7 +3,6 @@
   "auto_mapping": null,
   "base_model_name_or_path": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
   "bias": "none",
-  "corda_config": null,
   "eva_config": null,
   "exclude_modules": null,
   "fan_in_fan_out": false,
@@ -28,7 +27,6 @@
     "v_proj"
   ],
   "task_type": "CAUSAL_LM",
-  "trainable_token_indices": null,
   "use_dora": false,
   "use_rslora": false
 }

@@ -1,11 +1,11 @@
 # A.R.O.N.A
 
 ## Overview
-A.R.O.N.A is an open-source AI project based on Tiny Llama, specifically designed for Blue Archive on Linux platforms. The project features an AI named Arona with custom training capabilities.
+A.R.O.N.A is an open-source AI project based on Tiny Llama, specifically designed for Blue Archive Linux. The project features an AI named Arona with custom training capabilities.
 
 ## Features
 - Tiny Llama-based AI assistant
-- Linux compatibility
+- Linux/Windows/MacOS/Android compatibility
 - Custom training functionality
 - Multiple interaction modes
 

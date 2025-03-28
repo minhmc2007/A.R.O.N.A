@@ -1,74 +1,77 @@
 # A.R.O.N.A
 
 ## Overview
-A.R.O.N.A is an open-source AI project based on Tiny Llama, specifically designed for Blue Archive Linux. The project features an AI named Arona with custom training capabilities.
 
-## Features
-- Tiny Llama-based AI assistant
-- Linux/Windows/MacOS/Android compatibility
-- Custom training functionality
-- Multiple interaction modes
+A.R.O.N.A is an open-source AI project based on Tiny Llama, specifically designed for Blue Archive Linux. The AI, Arona, serves as an interactive assistant with customizable training capabilities.
 
-## Prerequisites
+### Basic Usage
+
+- **Test AI**: Run `python3 chatbot.py` to interact with Arona.
+- **Chat Interface**: Run `python3 main.py` for a full chat experience.
+- **System Compatibility**: Works on Linux, Windows, MacOS, Android or even IOS
+
+## Build
+
+### Prerequisites
+
 - Python 3
 - CUDA-compatible GPU (recommended)
 - Google Colab (recommended for training)
 - Nvidia T4 GPU (optimal for training)
 
-## Installation
+### Installation
+
 ```bash
 pip install --upgrade pip
 pip install torch transformers peft accelerate bitsandbytes datasets
 ```
 
-## Colab Training Setup
+### Build Methods
 
-### Dependencies
-```python
-!pip install torch transformers peft accelerate bitsandbytes datasets
-from google.colab import drive
-drive.mount('/content/drive')
+#### 1. Train Locally
+
+Run the following command on your machine:
+
+```bash
+python3 trainbot.py
 ```
 
-### Training Configuration
-- Model: TinyLlama/TinyLlama-1.1B-Chat-v1.0
-- Dataset: `data.json` (500+ entries)
-- Training Method: LoRA (Low-Rank Adaptation)
+#### 2. Train with GitHub Actions
 
-### Training Process
-1. Mount Google Drive
-2. Load TinyLlama model
-3. Preprocess dataset
-4. Apply LoRA configuration
-5. Train model
-6. Save LoRA adapter
+1. Fork this repository.
+2. Edit the configurations as needed.
+3. Start the GitHub Action called `trainbot`.
+   - Free-tier GitHub Actions should take around **4 hours** to complete training (500 dataset).
 
-## Project Structure
-- `trainbot.py`: Advanced user training script
-- `chatbot.py`: AI testing script
-- `main.py`: Primary interaction interface
-- `data.json`: Included dataset (500+ entries)
+#### 3. Train on Google Colab
 
-## Usage
-1. Test AI: `python3 chatbot.py`
-2. Chat Interface: `python3 main.py`
+1. Open `trainbot_colab.py`.
+2. Copy the script and run it in a Colab notebook.
+3. **Important**: Ensure you select an **Nvidia T4 runtime** for optimal performance.
+   - Training on Google Colab should take around **30 minutes** (500 dataset).
 
 ## Recommended Hardware
+
 - CUDA-compatible GPU
 - Nvidia T4 (optimal for training)
 - Google Colab Pro recommended
 
 ## Training Tips
-- Use Google Colab for best performance
-- Ensure sufficient GPU memory
-- Regularly save model checkpoints
+
+- Use Google Colab for best performance.
+- Ensure sufficient GPU memory.
+- Regularly save model checkpoints.
 
 ## License
-[Add your license information here]
+
+[Specify your license here]
 
 ## Contributors
-[Add contributor information]
+
+[List contributor information]
 
 ## Acknowledgments
+
 - TinyLlama Project
 - Hugging Face Transformers
+

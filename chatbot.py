@@ -19,7 +19,7 @@ print("🔄 Loading base model...")
 model = AutoModelForCausalLM.from_pretrained(base_model_name)
 print("🔄 Loading LoRA adapter...")
 model = PeftModel.from_pretrained(model, adapter_path)
-print("✅ Active adapters:", model.active_adapters)
+print(f"✅ Active adapters: {model.active_adapters}")
 
 # ---------------------
 # 3. Load tokenizer (prefer adapter's if available)
@@ -40,7 +40,7 @@ if tokenizer.pad_token is None:
 # ---------------------
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model.to(device)
-print(f"✅ Model loaded on {device}")
+print(f"✅ Model loaded on **{device}**")
 
 # ---------------------
 # 5. Generate a response using a prompt matching training format
@@ -51,14 +51,19 @@ inputs = tokenizer(prompt, return_tensors="pt").to(device)
 print("\n🚀 Generating response...")
 output = model.generate(
     **inputs,
-    max_new_tokens=100,    # Generate up to 100 new tokens
+    max_new_tokens=100,
     do_sample=True,
-    top_p=0.9,             # Slightly reduced randomness
-    temperature=1.0,       # Increase diversity
+    top_p=0.9,
+    temperature=1.0,
     pad_token_id=tokenizer.eos_token_id
 )
 
 response = tokenizer.decode(output[0], skip_special_tokens=True)
-print("\n--- Inference Output ---")
-print("Prompt:", prompt)
-print("Response:", response)
+
+# ✨ **Better Output Formatting**
+print("\n━━━━━━━━━━━━━━━━━━━━━━━━━━")
+print("📝 **Prompt:**")
+print(prompt)
+print("\n💬 **Response:**")
+print(response)
+print("━━━━━━━━━━━━━━━━━━━━━━━━━━")

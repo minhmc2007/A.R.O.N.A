@@ -13,6 +13,8 @@ jobs:
       # Step 1: Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: main  # Ensures we’re on the main branch
 
       # Step 2: Update and upgrade the system
       - name: Update and upgrade system
@@ -30,24 +32,18 @@ jobs:
         run: |
           pip3 install torch transformers datasets peft bitsandbytes accelerate
 
-      # Step 5: Clone the repository (already checked out, but ensuring latest)
-      # Note: Since actions/checkout already clones the repo, this step is optional unless you need a specific branch or repo
-      - name: Clone repository (optional)
-        run: |
-          git pull origin main
-
-      # Step 6: Run the training script
+      # Step 5: Run the training script
       - name: Run training script
         run: |
           python3 trainbot.py
 
-      # Step 7: Compress the output folders into a zip file
+      # Step 6: Compress the output folders into a zip file
       - name: Compress model folders
         run: |
           sudo apt install -y zip
           zip -r tinyllama_output.zip tinyllama_lora tinyllama_finetuned
 
-      # Step 8: Upload the zip file as an artifact
+      # Step 7: Upload the zip file as an artifact
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:

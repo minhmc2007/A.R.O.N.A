@@ -43,9 +43,9 @@ jobs:
           sudo apt install -y zip
           zip -r tinyllama_output.zip tinyllama_lora tinyllama_finetuned
 
-      # Step 7: Upload the zip file as an artifact
+      # Step 7: Upload the zip file as an artifact using v4
       - name: Upload artifact
-        uses: actions/upload-artifact@v3.1.3
+        uses: actions/upload-artifact@v4
         with:
           name: tinyllama_output
           path: tinyllama_output.zip

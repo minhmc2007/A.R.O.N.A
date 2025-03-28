@@ -26,7 +26,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 model.to(device)
 print(f"Model loaded on {device}")
 
-prompt = "Who is Arona?"
+prompt = "Who is Arona from Blue Archive ?"
 inputs = tokenizer(prompt, return_tensors="pt").to(device)
 output = model.generate(
     **inputs,

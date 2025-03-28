@@ -1,0 +1,37 @@
+name: Test Chatbot
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-chatbot:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      # Step 2: Update the system (skip full upgrade to save time)
+      - name: Update system
+        run: |
+          sudo apt update
+
+      # Step 3: Install Python3 and pip
+      - name: Install Python3 and pip
+        run: |
+          sudo apt install -y python3 python3-pip
+
+      # Step 4: Install required Python packages based on chatbot.py
+      - name: Install Python dependencies
+        run: |
+          pip3 install torch transformers peft
+
+      # Step 5: Run the chatbot script
+      - name: Run chatbot test
+        run: |
+          python3 chatbot.py

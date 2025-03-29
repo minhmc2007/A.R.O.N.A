@@ -45,14 +45,14 @@ python3 trainbot.py
 1. Fork this repository.
 2. Edit the configurations as needed.
 3. Start the GitHub Action called `trainbot`.
-   - Free-tier GitHub Actions should take around **4 hours** to complete training (500 dataset).
+   - Free-tier GitHub Actions should take around **+4 hours** to complete training (1500 dataset).
 
 #### 3. Train on Google Colab
 
 1. Open `trainbot_colab.py`.
 2. Copy the script and run it in a Colab notebook.
 3. **Important**: Ensure you select an **Nvidia T4 runtime** for optimal performance.
-   - Training on Google Colab should take around **30 minutes** (500 dataset).
+   - Training on Google Colab should take around **8 to 30 minutes** (1500 dataset).
 
 ## Recommended Hardware
 

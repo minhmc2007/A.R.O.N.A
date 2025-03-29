@@ -45,7 +45,7 @@ print(f"✅ Model loaded on **{device}**")
 # ---------------------
 # 5. Generate a response using a prompt matching training format
 # ---------------------
-prompt = "Instruction: Who is Arona from Blue Archive? Response:"
+prompt = "Instruction: Who is Arona? Response:"
 inputs = tokenizer(prompt, return_tensors="pt").to(device)
 
 print("\n🚀 Generating response...")

@@ -1,0 +1,4 @@
+transformers>=4.37.0
+torch>=2.0.0
+peft>=0.7.0
+colorama>=0.4.6

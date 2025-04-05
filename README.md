@@ -66,14 +66,6 @@ python3 trainbot.py
 - Ensure sufficient GPU memory.
 - Regularly save model checkpoints.
 
-## License
-
-[Specify your license here]
-
-## Contributors
-
-[List contributor information]
-
 ## Acknowledgments
 
 - TinyLlama Project

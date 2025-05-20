@@ -49,7 +49,7 @@ python3 trainbot.py
 
 #### 3. Train on Google Colab
 
-1. Open `trainbot_colab.py`.
+1. Open `trainbot_colab.py`. (not yet)
 2. Copy the script and run it in a Colab notebook.
 3. **Important**: Ensure you select an **Nvidia T4 runtime** for optimal performance.
    - Training on Google Colab should take around **8 to 30 minutes** (1500 dataset).
